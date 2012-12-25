@@ -5552,10 +5552,12 @@ static int wpa_driver_nl80211_set_ap(void *priv,
 			wpabuf_head(params->assocresp_ies));
 	}
 
+#ifdef NO_HOX_WIFI_BLOB_HACK
 	if (drv->capa.flags & WPA_DRIVER_FLAGS_INACTIVITY_TIMER)  {
 		NLA_PUT_U16(msg, NL80211_ATTR_INACTIVITY_TIMEOUT,
 			    params->ap_max_inactivity);
 	}
+#endif
 
 	ret = send_and_recv_msgs(drv, msg, NULL, NULL);
 	if (ret) {

@@ -734,6 +734,7 @@ struct wpa_driver_ap_params {
 	 */
 	u8 access_network_type;
 
+#ifdef NO_HOX_WIFI_BLOB_HACK
 	/**
 	 * ap_max_inactivity - Timeout in seconds to detect STA's inactivity
 	 *
@@ -745,6 +746,7 @@ struct wpa_driver_ap_params {
 	 * disable_dgaf - Whether group-addressed frames are disabled
 	 */
 	int disable_dgaf;
+#endif
 };
 
 /**

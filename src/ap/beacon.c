@@ -718,7 +718,9 @@ void ieee802_11_set_beacon(struct hostapd_data *hapd)
 	    !is_zero_ether_addr(hapd->conf->hessid))
 		params.hessid = hapd->conf->hessid;
 	params.access_network_type = hapd->conf->access_network_type;
+#ifdef NO_HOX_WIFI_BLOB_HACK
 	params.ap_max_inactivity = hapd->conf->ap_max_inactivity;
+#endif
 #ifdef CONFIG_HS20
 	params.disable_dgaf = hapd->conf->disable_dgaf;
 #endif /* CONFIG_HS20 */
